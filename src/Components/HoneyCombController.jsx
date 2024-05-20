@@ -75,7 +75,7 @@ function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
             showErrorMessage(i18next.t("errAlreadyF"))
         }
         else {
-            axios.post((`http://localhost:3001/${isTurkish ? "tr" : "en"}`), { value: tempInputValue }).then((res) => {
+            axios.post((`https://spelling-bee-server.vercel.app/${isTurkish ? "tr" : "en"}`), { value: tempInputValue }).then((res) => {
                 if (res.data) {
                     setRemainingTime(prevRemainingTime => prevRemainingTime + 15);
                     setFoundedWords([...foundedWords, tempInputValue])
