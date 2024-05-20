@@ -1,14 +1,11 @@
 import React from 'react'
-import i18next from '../i18n.js'
 
 
 function MainScreen({ setStarted,isTurkish,setIsTurkish }) {
     function changeLanguage(){
         if(isTurkish){
-            i18next.changeLanguage("en")
             window.location.pathname = "/en"
         }else{
-            i18next.changeLanguage("tr")
             window.location.pathname = "/tr"
         }
         setIsTurkish(prev=>!prev)
@@ -22,7 +19,7 @@ function MainScreen({ setStarted,isTurkish,setIsTurkish }) {
                 <img src={require("../Assets/Icons/spellingBeeIcon.png")} alt="" className=' mx-auto size-16' />
                 <h4 className=' font-bold text-2xl'>Spelling Bee</h4>
                 <button className='border-black border-4 px-10 rounded-full bg-[#f8cd0e] mt-[20vh]' onClick={() => setStarted(true)}>
-                    <p className='text-3xl font-bold px-2 py-3 border-black border-x-4 bg-[#f8cd0e]'>{i18next.t("startButton")}</p>
+                    <p className='text-3xl font-bold px-2 py-3 border-black border-x-4 bg-[#f8cd0e]'>"asad"</p>
                 </button>
             </div>
             <div className='absolute -translate-y-1/2 -translate-x-1/2 left-1/2 top-1/2'>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ArrowPathIcon } from '@heroicons/react/24/solid'
 import axios from "axios";
-import i18next from '../i18n.js'
 
 function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
     const [words, setWords] = useState([])
@@ -33,7 +32,7 @@ function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
     }, [shuffle])
     useEffect(() => {
         if (inputValue.length > 9) {
-            showErrorMessage(i18next.t("errLong"))
+            showErrorMessage("asd")
             setTimeout(() => {
                 setInputValue("")
             }, 1000);
@@ -67,12 +66,12 @@ function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
     function checkWordCorrection() {
         let tempInputValue = inputValue
         if (inputValue.length <= 3) {
-            showErrorMessage(i18next.t("errShort"))
+            showErrorMessage("asdqwe")
         } else if (!inputValue.includes(words[0])) {
-            showErrorMessage(i18next.t("errCenterLetter"))
+            showErrorMessage("asdzxc")
         }
         else if (foundedWords.includes(tempInputValue)) {
-            showErrorMessage(i18next.t("errAlreadyF"))
+            showErrorMessage("asdasd")
         }
         else {
             axios.post((`http://localhost:3001/${isTurkish ? "tr" : "en"}`), { value: tempInputValue }).then((res) => {
@@ -81,7 +80,7 @@ function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
                     setFoundedWords([...foundedWords, tempInputValue])
                 }
                 else {
-                    showErrorMessage(i18next.t("errNotIn"))
+                    showErrorMessage("asdqwe")
                 }
             })
         }
@@ -135,13 +134,13 @@ function HoneyComb({ foundedWords, setFoundedWords, setFinished, isTurkish }) {
             </div>
             <div className='flex items-center justify-between w-full mt-5 ' disabled={disableController}>
                 <button className='bg-[#ebebeb] p-3 font-semibold text-md rounded-2xl w-[30%]' onClick={() => deleteLastLetter()}>
-                    {i18next.t("delButton")}
+                    {"asdqweasd"}
                 </button>
                 <button className='bg-[#ebebeb] p-3 rounded-full' onClick={() => setShuffle(prev => !prev)} disabled={disableController}>
                     <ArrowPathIcon className='size-7'></ArrowPathIcon>
                 </button>
                 <button className='bg-[#ebebeb] p-3 font-semibold text-md rounded-2xl w-[30%]' onClick={() => checkWordCorrection()} disabled={disableController}>
-                    {i18next.t("enterButton")}
+                    {"asdasd"}
                 </button>
             </div>
         </div>
